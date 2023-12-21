@@ -2,7 +2,7 @@
 #  ╦═╗╦╔═╗╔═╗  ╦╔╗╔╔═╗╔╦╗╔═╗╦  ╦  ╔═╗╦═╗
 #  ╠╦╝║║  ║╣   ║║║║╚═╗ ║ ╠═╣║  ║  ║╣ ╠╦╝
 #  ╩╚═╩╚═╝╚═╝  ╩╝╚╝╚═╝ ╩ ╩ ╩╩═╝╩═╝╚═╝╩╚═
-#	Script to install my dotfiles
+#	Script to install my hyprdots
 #   Author: z0mbi3
 #	url: https://github.com/gh0stzk
 
@@ -36,7 +36,7 @@ logo () {
 	       &&&////   &&
 	          &&//@@@**
 	            ..***
-			  z0mbi3 Dotfiles\n\n"
+			  z0mbi3 hyprdots\n\n"
     printf ' %s [%s%s %s%s %s]%s\n\n' "${CRE}" "${CNC}" "${CYE}" "${text}" "${CNC}" "${CRE}" "${CNC}"
 }
 
@@ -50,7 +50,7 @@ fi
 ########## ---------- Welcome ---------- ##########
 
 logo "Welcome!"
-printf '%s%sThis script will check if you have the necessary dependencies, and if not, it will install them. Then, it will clone the RICE in your HOME directory.\nAfter that, it will create a secure backup of your files, and then copy the new files to your computer.\n\nMy dotfiles DO NOT modify any of your system configurations.\nYou will be prompted for your root password to install missing dependencies and/or to switch to zsh shell if its not your default.\n\nThis script doesnt have the potential power to break your system, it only copies files from my repository to your HOME directory.%s\n\n' "${BLD}" "${CRE}" "${CNC}"
+printf '%s%sThis script will check if you have the necessary dependencies, and if not, it will install them. Then, it will clone the RICE in your HOME directory.\nAfter that, it will create a secure backup of your files, and then copy the new files to your computer.\n\nMy hyprdots DO NOT modify any of your system configurations.\nYou will be prompted for your root password to install missing dependencies and/or to switch to zsh shell if its not your default.\n\nThis script doesnt have the potential power to break your system, it only copies files from my repository to your HOME directory.%s\n\n' "${BLD}" "${CRE}" "${CNC}"
 
 while true; do
 	read -rp " Do you wish to continue? [y/N]: " yn
@@ -99,19 +99,19 @@ clear
 
 ########## ---------- Cloning the Rice! ---------- ##########
 
-logo "Downloading dotfiles"
+logo "Downloading hyprdots"
 
 repo_url="https://github.com/Deyusha69/hyprdots"
-repo_dir="$HOME/dotfiles"
+repo_dir="$HOME/hyprdots"
 
 # Verifica si el directorio del repositorio ya existe y, si es así, lo elimina
 	if [ -d "$repo_dir" ]; then
-		printf "Removing existing dotfiles repository\n"
+		printf "Removing existing hyprdots repository\n"
 		rm -rf "$repo_dir"
 	fi
 
 # Clona el repositorio
-printf "Cloning dotfiles from %s\n" "$repo_url"
+printf "Cloning hyprdots from %s\n" "$repo_url"
 git clone --depth=1 "$repo_url" "$repo_dir"
 
 sleep 2
@@ -119,13 +119,13 @@ clear
 
 ########## ---------- Copy the Rice! ---------- ##########
 
-logo "Installing dotfiles.."
+logo "Installing hyprdots.."
 printf "Copying files to respective directories..\n"
 
 [ ! -d ~/.config ] && mkdir -p ~/.config
 [ ! -d ~/.local/share/fonts ] && mkdir -p ~/.local/share/fonts
 
-for archivos in ~/dotfiles/config/*; do
+for archivos in ~/hyprdots/config/*; do
   cp -R "${archivos}" ~/.config/
   if [ $? -eq 0 ]; then
 	printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
@@ -136,7 +136,7 @@ for archivos in ~/dotfiles/config/*; do
   fi
 done
 
-for archivos in ~/dotfiles/misc/fonts/*; do
+for archivos in ~/hyprdots/misc/fonts/*; do
   cp -R "${archivos}" ~/.local/share/fonts/
   if [ $? -eq 0 ]; then
 	printf "%s%s%s copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
