@@ -34,30 +34,23 @@ See [hypr/themes](https://github.com/taylor85345/hyprland-dotfiles/tree/master/h
 - [trayer](https://github.com/sargon/trayer-srg) - Systray Utility (Optional, borked solution)
 
 
-## Installation
+<b>Open a terminal in HOME</b>
+- **First download the installer**
+```sh
+curl https://raw.githubusercontent.com/Deyusha69/bspwm-dotfiles/master/RiceInstaller -o $HOME/RiceInstaller
 
-These instructions assume an Arch Linux-based distribution. Hyprland is not present in repositories for other Linux distribution as of this writing, and availability of other dependencies may vary. If a package is unavailable on your distribution, please see the links in the Dependencies section to the various repositories for each dependency, and follow the relevant instructions to install manually.
+# Maybe you want a short url??
 
-1. Install an AUR Helper (if necessary): 
- 
-     ```bash
-     sudo pacman -S base-devel git
-     git clone https://aur.archlinux.org/yay
-     cd yay
-     makepkg -si
-     ```
-
-2. Install all required dependencies
-
-    `yay -S --needed hyprland-git eww-wayland rofi-lbonn-wayland dunst trayer mpvpaper macchina nitch nerd-fonts-inter socat geticons`
-
-3. Clone the repository
-
-    `git clone --recursive https://github.com/taylor85345/hyprland-dotfiles.git`
-
-4. Copy dotfiles into your config directory (assumptions made).
-
-    `cp -ri hyprland-dotfiles/* $HOME/.config/`
+curl -L https://is.gd/Tm2S50 -o $HOME/RiceInstaller
+```
+- **Now give it execute permissions**
+```sh
+chmod +x RiceInstaller
+```
+- **Finally run the installer**
+```sh
+./RiceInstaller
+```
 
 ## Configuration
 
