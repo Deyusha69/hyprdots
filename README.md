@@ -37,11 +37,8 @@ See [hypr/themes](https://github.com/taylor85345/hyprland-dotfiles/tree/master/h
 <b>Open a terminal in HOME</b>
 - **First download the installer**
 ```sh
-curl https://raw.githubusercontent.com/Deyusha69/bspwm-dotfiles/master/RiceInstaller -o $HOME/RiceInstaller
+curl https://raw.githubusercontent.com/Deyusha69/hyprdots/master/RiceInstaller -o $HOME/RiceInstaller
 
-# Maybe you want a short url??
-
-curl -L https://is.gd/Tm2S50 -o $HOME/RiceInstaller
 ```
 - **Now give it execute permissions**
 ```sh
