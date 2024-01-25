@@ -231,7 +231,7 @@ logo "installing Paru, Eww, tdrop, xqp & nwg-look-bin"
 logo "Installing artwork-breath-gtk Themes"
 git clone https://github.com/manjaro/artwork-breath-gtk.git
 cd artwork-breath-gtk/
-find Breath-Dark -type f -exec install -Dm644 '{}' "$pkgdir/usr/share/themes/{}" \;
+sudo find Breath-Dark -type f -exec install -Dm644 '{}' "$pkgdir/usr/share/themes/{}" \;
 cd
 printf "%s%sDone!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
@@ -240,7 +240,7 @@ clear
 logo "Installing Inverse-dark-kde Themes"
 git clone https://github.com/yeyushengfan258/Inverse-dark-kde.git
 cd cd Inverse-dark-kde/
-./install.sh
+sudo ./install.sh
 cd
 printf "%s%sDone!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
