@@ -66,7 +66,7 @@ clear
 
 logo "Installing needed packages.."
 
-dependencias=(base-devel hyprland kitty foot trayer socat dunst fuzzel geany ranger xdg-user-dirs papirus-icon-theme gvfs mpv thunar thunar-archive-plugin file-roller viewnior ttf-droid noto-fonts-emoji sddm xfce4-power-manager)
+dependencias=(base-devel hyprland kitty foot trayer socat dunst fuzzel geany ranger xdg-user-dirs papirus-icon-theme gvfs ark dolphin viewnior ttf-droid noto-fonts-emoji xfce4-power-manager kvantum qt5ct)
 
 is_installed() {
   pacman -Qi "$1" &> /dev/null
@@ -220,11 +220,18 @@ logo "installing Paru, Eww, tdrop, xqp & nwg-look-bin"
 		printf "\n%s%sInstalling macchina-bin, this should be fast!%s\n" "${BLD}" "${CBL}" "${CNC}"
 		paru -S macchina-bin --skipreview --noconfirm
 	fi
+     # Intalling sddm-git
+	if command -v sddm-git >/dev/null 2>&1; then
+		printf "\n%s%ssddm-git is already installed%s\n" "${BLD}" "${CGR}" "${CNC}"
+	else
+		printf "\n%s%sInstalling sddm-git, this should be fast!%s\n" "${BLD}" "${CBL}" "${CNC}"
+		paru -S sddm-git --skipreview --noconfirm
+	fi
 
 logo "Installing artwork-breath-gtk Themes"
 git clone https://github.com/manjaro/artwork-breath-gtk.git
 cd artwork-breath-gtk/
-sudo find Breath -type f -exec install -Dm644 '{}' "$pkgdir/usr/share/themes/{}" \;
+find Breath-Dark -type f -exec install -Dm644 '{}' "$pkgdir/usr/share/themes/{}" \;
 cd
 printf "%s%sDone!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
@@ -233,7 +240,7 @@ clear
 logo "Installing Inverse-dark-kde Themes"
 git clone https://github.com/yeyushengfan258/Inverse-dark-kde.git
 cd cd Inverse-dark-kde/
-sudo ./install.sh
+./install.sh
 cd
 printf "%s%sDone!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
