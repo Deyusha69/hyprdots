@@ -240,7 +240,7 @@ clear
 logo "Installing Inverse-dark-kde Themes"
 git clone https://github.com/yeyushengfan258/Inverse-dark-kde.git
 cd cd Inverse-dark-kde/
-sudo ./install.sh
+./install.sh
 cd
 printf "%s%sDone!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
