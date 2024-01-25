@@ -66,7 +66,7 @@ clear
 
 logo "Installing needed packages.."
 
-dependencias=(base-devel hyprland kitty foot trayer socat dunst fuzzel geany ranger xdg-user-dirs papirus-icon-theme gvfs ark dolphin viewnior ttf-droid noto-fonts-emoji xfce4-power-manager kvantum qt5ct)
+dependencias=(base-devel hyprland kitty foot trayer socat dunst fuzzel geany ranger xdg-user-dirs papirus-icon-theme gvfs ark dolphin viewnior ttf-droid noto-fonts-emoji xfce4-power-manager kvantum qt5ct fish)
 
 is_installed() {
   pacman -Qi "$1" &> /dev/null
