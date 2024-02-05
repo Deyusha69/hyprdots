@@ -66,7 +66,7 @@ clear
 
 logo "Installing needed packages.."
 
-dependencias=(base-devel hyprland kitty foot trayer socat dunst fuzzel geany ranger xdg-user-dirs papirus-icon-theme gvfs ark dolphin viewnior ttf-droid noto-fonts-emoji xfce4-power-manager kvantum qt5ct fish)
+dependencias=(base-devel hyprland kitty foot trayer socat dunst fuzzel geany ranger xdg-user-dirs papirus-icon-theme gvfs ark dolphin viewnior ttf-droid noto-fonts-emoji xfce4-power-manager kvantum qt5ct fish thunar thunar-archive-plugin file-roller wl-clipboard wireplumber pipewire polkit-gnome git swappy)
 
 is_installed() {
   pacman -Qi "$1" &> /dev/null
@@ -101,8 +101,8 @@ clear
 
 logo "Downloading hyprdots"
 
-repo_url="https://github.com/Deyusha69/hyprdots"
-repo_dir="$HOME/hyprdots"
+repo_url="https://github.com/taylor85345/hyprland-dotfiles.git"
+repo_dir="$HOME/hyprland-dotfiles"
 
 # Verifica si el directorio del repositorio ya existe y, si es así, lo elimina
 	if [ -d "$repo_dir" ]; then
@@ -112,40 +112,14 @@ repo_dir="$HOME/hyprdots"
 
 # Clona el repositorio
 printf "Cloning hyprdots from %s\n" "$repo_url"
-git clone --depth=1 "$repo_url" "$repo_dir"
+git clone --recursive "$repo_url" "$repo_dir"
 
 sleep 2
 clear
 
 ########## ---------- Copy the Rice! ---------- ##########
 
-logo "Installing hyprdots.."
-printf "Copying files to respective directories..\n"
-
-[ ! -d ~/.config ] && mkdir -p ~/.config
-[ ! -d ~/.local/share/fonts ] && mkdir -p ~/.local/share/fonts
-
-for archivos in ~/hyprdots/config/*; do
-  cp -R "${archivos}" ~/.config/
-  if [ $? -eq 0 ]; then
-	printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
-	sleep 1
-  else
-	printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
-	sleep 1
-  fi
-done
-
-for archivos in ~/hyprdots/misc/fonts/*; do
-  cp -R "${archivos}" ~/.local/share/fonts/
-  if [ $? -eq 0 ]; then
-	printf "%s%s%s copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
-	sleep 1
-  else
-	printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
-	sleep 1
-  fi
-done
+git clone --recursive https://github.com/taylor85345/hyprland-dotfiles.git
 
 fc-cache -rv >/dev/null 2>&1
 printf "%s%sFiles copied succesfully!!%s\n" "${BLD}" "${CGR}" "${CNC}"
